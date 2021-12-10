@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils2.c                                 :+:      :+:    :+:   */
+/*   ft_push_swap_utils2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:49:05 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 03:46:09 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 20:50:32 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,18 @@ void	index_reording(t_stack *stack)
 		i++;
 	}
 	first_node->index = i;
+}
+
+t_node	*node_copy(t_node *original)
+{
+	t_node	*copy;
+
+	copy = NULL;
+	if (!original)
+		return (NULL);
+	copy = malloc(sizeof(t_node));
+	if (!copy)
+		return (NULL);
+	copy->value = original->value;
+	return (copy);
 }

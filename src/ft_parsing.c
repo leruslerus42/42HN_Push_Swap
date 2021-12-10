@@ -6,12 +6,12 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 13:02:46 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 12:37:56 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 19:10:01 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+/*
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -122,10 +122,9 @@ static	int	ft_count_words(const char *s, char c)
 	}
 	return (words);
 }
-/*
-* Modified version, last char is the number
-* of words generated, instead of NULL.
-*/
+
+
+
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
@@ -141,7 +140,7 @@ char	**ft_split(char const *s, char c)
 	str = (ft_magic(s, c, str));
 	return (str);
 }
-
+*/
 
 void	parsing(t_stack **a, char **argv, int argc)
 {
@@ -161,8 +160,7 @@ void	parsing(t_stack **a, char **argv, int argc)
 		{
 			num = ft_atoi(array[j]);
 			ft_error_double_digit(*a, num);
-			(*a)->size ++;
-			stack_add_back(a, new_node(num));
+			stack_add_back(a, new_node(*a, num, 'a'));
 			j++;
 		}
 		i++;
@@ -188,9 +186,9 @@ void	parsing(t_stack **a, char **argv, int argc)
 	/* TEST PUSH UTILS MAIN
 	while (i < 7)
 	{
-		printf("%i %i\n", a->node->data, a->node->index);
+		printf("%i %i\n", a->node->value, a->node->index);
 		(a)->node = (a)->node->next;
 		i++;
 	}*/
-	//printf("%i ", last_node(a)->data);
+	//printf("%i ", last_node(a)->value);
 	//printf("%i\n", get_stack_size(a));

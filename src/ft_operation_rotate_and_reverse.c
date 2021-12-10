@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 07:25:48 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 12:16:46 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 19:09:08 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	ra_rb(t_stack *stack, int c)
 		printf("ra\n");
 	else if (c == 'b')
         printf("rb\n");
-	temp = stack->node->data;
+	temp = stack->node->value;
 	last = last_node(stack);
-	stack->node->data = last->data;
+	stack->node->value = last->value;
 	last->next = stack->node->next;
 	temp2 = last->next;
-	//stack->node->data = last->node;
+	//stack->node->value = last->node;
 	while (temp2->next->next)
 		temp2 = temp2->next;
-	temp2->data = temp;
+	temp2->value = temp;
 	temp2->next = NULL;
 
 	//IMPLEMENTA CHANGE OF INDEX
@@ -61,8 +61,8 @@ void	rra_rrb(t_stack *stack, int c)
         printf("rb\n");
 	temp = stack->node;
 	last = last_node(stack);
-	stack->node->next->data = temp->data;
-	stack->node->data = last->data;
+	stack->node->next->value = temp->value;
+	stack->node->value = last->value;
 	while (temp->next->next)
 		temp = temp->next;
 	temp->next = NULL;
