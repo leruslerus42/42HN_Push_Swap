@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/10 00:15:57 by coder             #+#    #+#             */
+/*   Updated: 2021/12/10 05:43:44 by coder            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -5,15 +17,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-//# include "../libft./libft.h"
+# include "../libft/libft.h"
 
 # define TRUE 1
 # define FALSE 0
+# define ERROR "Error \n"
 
 typedef struct s_node
 {
-	int	data;
-	int	index;
+	int				data;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*previous;
 }	t_node;
 
 typedef struct s_stack
@@ -23,17 +38,23 @@ typedef struct s_stack
 	t_node	*node;
 }	t_stack;
 
+/*
+   gcc ./main.c ./src/ft_parsing.c ./src/ft_push_swap_utils.c ./src/ft_push_swap_utils2.c ./libft/ft_atoi.c ./libft/ft_split.c ./libft/ft_substr.c ./libft/ft_isdigit.c ./libft/ft_strlen.c ./src/ft_error_management.c
+*/
+
+/*************PARSING***************/
+void	parsing(t_stack **a, char **argv, int argc);
+
+
 /*************PUSH_SWAP_UTILS***************/
-t_stack	**new_stack(void);
+t_stack	*new_stack(void);
 t_node	*new_node(int data);
-t_node	*last_node(t_stack **stack);
+t_node	*last_node(t_stack *stack);
 void	stack_add_front(t_stack **stack, t_node *new_start_node);
 void	stack_add_back(t_stack **stack, t_node *new_end_node);
-int		get_stack_size(t_stack **stack);
+int		get_stack_size(t_stack *stack);
+void	index_reording(t_stack *stack);
 
-
-
-
-
-
-# endif
+/*************FT_ERROR_MANAGEMENT***************/
+void ft_error_double_digit(t_stack *stack, int num);
+#endif

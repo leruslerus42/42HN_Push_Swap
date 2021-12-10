@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 11:18:57 by rrajaobe          #+#    #+#             */
-/*   Updated: 2021/09/24 13:37:55 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2021/12/10 04:21:13 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ static	int	ft_count_words(const char *s, char c)
 	}
 	return (words);
 }
-
+/*
+* Modified version, last char is the number
+* of words generated, instead of NULL.
+*/
 char	**ft_split(char const *s, char c)
 {
 	char	**str;

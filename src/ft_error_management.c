@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   ft_error_management.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 13:02:46 by coder             #+#    #+#             */
-/*   Updated: 2021/12/08 13:42:34 by coder            ###   ########.fr       */
+/*   Created: 2021/12/10 05:07:57 by coder             #+#    #+#             */
+/*   Updated: 2021/12/10 05:41:04 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_stack **parsing(t_stack **a, char **argv)
+#include "../includes/push_swap.h"
+
+void ft_error_double_digit(t_stack *stack, int num)
 {
-	int count;
-	int i;
-
-	i = 0;
-	count = 0;
-	while (i < argc - 1)
+	t_node  *temp;
+	
+	temp = stack->node;
+	while (temp)
 	{
-		//convert long unsigned int to int 	
-
-
-		//assign number to new node
-		i++;
+		if (num == temp->data)
+		{
+			printf("%s Double Digit\n", ERROR);
+			exit(0);
+		}
+		temp = temp->next;
 	}
-
-
-
-
-
-
-
-
-
-	count = stack->size;
 }
+
+
+//ARGUMENTS NOT INTEGERS OR BIGGER THEN INTEGER STILL TO MANAGE
