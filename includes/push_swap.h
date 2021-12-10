@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 00:15:57 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 07:53:41 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 12:30:53 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,12 @@ void	parsing(t_stack **a, char **argv, int argc);
 
 /*************OPERATIONS***************/
 int		sa_sb(t_stack *stack, char c);
-void	ss(t_stack *stack_a, t_stack *stack_b, char c);
-void	pa_pb(t_stack **stack_a, t_stack **stack_b, char c)
+void	ss(t_stack *stack_a, t_stack *stack_b);
+void 	pa_pb(t_stack **a, t_stack **b, char c);
 void	ra_rb(t_stack *stack, int c);
 void	rr(t_stack *stack_a, t_stack *stack_b, char c);
 void	rra_rrb(t_stack *stack, int c);
 void	rrr(t_stack *stack_a, t_stack *stack_b, char c);
-
-
 
 /*************PUSH_SWAP_UTILS***************/
 t_stack	*new_stack(void);

@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:38:58 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 06:30:46 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 11:28:41 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_node	*new_node(int data)
 	node->index = i;
 	node->next = NULL;
 	//node->previous = ;
-	
+	//care, if u do new node, could be conflict with index, since they are always incrementating.
 	return (node);
 }
 
@@ -57,7 +57,7 @@ void	stack_add_front(t_stack **stack, t_node *new_start_node)
 {
 	t_node	*old_first_node;
 
-	if (!stack || !(*stack)->size <= 1)
+	if (!stack)
 		return ;	
 
 	old_first_node = new_node((*stack)->node->data);
@@ -75,7 +75,6 @@ void	stack_add_back(t_stack **stack, t_node *new_end_node)
 	
 	if (!stack || !new_end_node)
 		return ;
-
 	if (!(*stack)->node)
 	{
 		(*stack)-> node = new_end_node;
