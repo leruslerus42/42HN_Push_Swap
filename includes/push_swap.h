@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 00:15:57 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 05:43:44 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 07:53:41 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,21 @@ typedef struct s_stack
 }	t_stack;
 
 /*
-   gcc ./main.c ./src/ft_parsing.c ./src/ft_push_swap_utils.c ./src/ft_push_swap_utils2.c ./libft/ft_atoi.c ./libft/ft_split.c ./libft/ft_substr.c ./libft/ft_isdigit.c ./libft/ft_strlen.c ./src/ft_error_management.c
+   gcc ./main.c ./src/ft_parsing.c ./src/ft_push_swap_utils.c ./src/ft_push_swap_utils2.c ./libft/ft_atoi.c ./libft/ft_split.c ./libft/ft_substr.c ./libft/ft_isdigit.c ./libft/ft_strlen.c ./src/ft_error_management.c ./src/ft_operation_swap_and_push.c ./src/ft_operation_rotate_and_reverse.c
 */
 
 /*************PARSING***************/
 void	parsing(t_stack **a, char **argv, int argc);
+
+/*************OPERATIONS***************/
+int		sa_sb(t_stack *stack, char c);
+void	ss(t_stack *stack_a, t_stack *stack_b, char c);
+void	pa_pb(t_stack **stack_a, t_stack **stack_b, char c)
+void	ra_rb(t_stack *stack, int c);
+void	rr(t_stack *stack_a, t_stack *stack_b, char c);
+void	rra_rrb(t_stack *stack, int c);
+void	rrr(t_stack *stack_a, t_stack *stack_b, char c);
+
 
 
 /*************PUSH_SWAP_UTILS***************/

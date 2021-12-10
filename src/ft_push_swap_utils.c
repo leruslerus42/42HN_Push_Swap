@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:38:58 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 05:53:37 by coder            ###   ########.fr       */
+/*   Updated: 2021/12/10 06:30:46 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_node	*new_node(int data)
 	node->index = i;
 	node->next = NULL;
 	//node->previous = ;
+	
 	return (node);
 }
 
