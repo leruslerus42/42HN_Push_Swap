@@ -3,78 +3,81 @@
 /*                                                        :::      ::::::::   */
 /*   ft_operation_rotate_and_reverse.c                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 07:25:48 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 19:09:08 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/20 06:37:39 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-//testa. unsicher ob richtig ist und das erste value gelöscht wird
-//first el -> last el
-void	ra_rb(t_stack *stack, int c)
+/*first el -> last el*/
+void	rotate(t_stack *stack, int c, int checker)
 {
-	t_node *last;
-	int		temp;
-	t_node	*temp2;
-	
-	if (c == 'a')
-		printf("ra\n");
-	else if (c == 'b')
-        printf("rb\n");
-	temp = stack->node->value;
-	last = last_node(stack);
-	stack->node->value = last->value;
-	last->next = stack->node->next;
-	temp2 = last->next;
-	//stack->node->value = last->node;
-	while (temp2->next->next)
-		temp2 = temp2->next;
-	temp2->value = temp;
-	temp2->next = NULL;
-
-	//IMPLEMENTA CHANGE OF INDEX
-}
-
-void	rr(t_stack *stack_a, t_stack *stack_b, char c)
-{
-	ra_rb(stack_a, 'X');
-	ra_rb(stack_b, 'X');
-	printf("rr\n");
-}
-
-//IMPLEMENT
-
-
-//last el->first el
-void	rra_rrb(t_stack *stack, int c)
-{
-	t_node *last;
+	t_node	*last;
 	t_node	*temp;
-	
-	if (c == 'a')
-		printf("ra\n");
-	else if (c == 'b')
-        printf("rb\n");
+	t_node	*temp2;
+
+	if (stack->size <= 1)
+		return ;
+	if (c == 'a' && !checker)
+		ft_putstr_fd("ra\n", 1);
+	else if (c == 'b' && !checker)
+		ft_putstr_fd("rb\n", 1);
+	temp = stack->node;
+	temp2 = stack->node->next;
+	stack->node = temp2;
+	last = last_node(stack);
+	last->next = temp;
+	temp->next = NULL;
+	index_reording(stack);
+	stack->ops ++;
+}
+
+void	rotate_x_2(t_stack *stack_a, t_stack *stack_b, int checker)
+{
+	if (stack_a->size <= 1 || stack_b->size <= 1)
+		return ;
+	rotate(stack_a, 'X', checker);
+	rotate(stack_b, 'X', checker);
+	if (!checker)
+		ft_putstr_fd("rr\n", 1);
+	stack_a->ops --;
+}
+
+/*last el->first el*/
+void	reverse(t_stack *stack, int c, int checker)
+{
+	t_node	*last;
+	t_node	*temp;
+	t_node	*temp2;
+
+	if (stack->size <= 1)
+		return ;
+	if (c == 'a' && !checker)
+		ft_putstr_fd("rra\n", 1);
+	else if (c == 'b' && !checker)
+		ft_putstr_fd("rrb\n", 1);
 	temp = stack->node;
 	last = last_node(stack);
-	stack->node->next->value = temp->value;
-	stack->node->value = last->value;
-	while (temp->next->next)
-		temp = temp->next;
-	temp->next = NULL;
+	stack->node = last;
+	temp2 = temp;
+	while (temp2->next->next)
+		temp2 = temp2->next;
 	last->next = temp;
-	//IMPLEMENTA CHANGE OF INDEX
+	temp2->next = NULL;
+	index_reording(stack);
+	stack->ops ++;
 }
 
-void	rrr(t_stack *stack_a, t_stack *stack_b, char c)
+void	reverse_x_2(t_stack *stack_a, t_stack *stack_b, int checker)
 {
-	int	print;
-
-	rra_rrb(stack_a, 'X');
-	rra_rrb(stack_b, 'X');
-	printf("rrr\n");
+	if (stack_a->size <= 1 || stack_b->size <= 1)
+		return ;
+	reverse(stack_a, 'X', checker);
+	reverse(stack_b, 'X', checker);
+	if (!checker)
+		ft_putstr_fd("rrr\n", 1);
+	stack_a->ops --;
 }

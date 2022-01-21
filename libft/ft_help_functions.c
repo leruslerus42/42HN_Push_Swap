@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_help_functions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/24 11:18:57 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/20 10:48:50 by rrajaobe         ###   ########.fr       */
+/*   Created: 2021/12/08 13:02:46 by coder             #+#    #+#             */
+/*   Updated: 2022/01/20 10:42:46 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
 static	char	**ft_magic(char const *s, char c, char **str)
 {
@@ -57,11 +57,6 @@ static	int	ft_count_words(const char *s, char c)
 	}
 	return (words);
 }
-
-/*
-* Modified version, last char is the number
-* of words generated, instead of NULL.
-*/
 
 char	**ft_split(char const *s, char c)
 {

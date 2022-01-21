@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rrajaobe <rrajaobe@student.42.fr>          +#+  +:+       +#+         #
+#    By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/21 11:40:37 by rrajaobe          #+#    #+#              #
-#    Updated: 2021/07/24 07:57:42 by rrajaobe         ###   ########.fr        #
+#    Updated: 2022/01/20 10:26:56 by rrajaobe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,6 @@ SRC =	ft_atoi.c \
 		ft_split.c \
 		ft_strtrim.c \
 
-		
-
-
-
 all:	$(NAME)
 
 $(NAME): *.c
@@ -67,7 +63,5 @@ clean:
 
 fclean: clean
 		 rm -f $(NAME)
-# remove .o files + binary
 
 re:		fclean all
-# fc clean + remake your binary

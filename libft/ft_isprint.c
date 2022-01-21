@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 12:52:18 by rrajaobe          #+#    #+#             */
-/*   Updated: 2021/09/24 13:32:46 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/20 10:49:44 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 int	ft_isprint(int c)
 {
 	if (((c >= '\040') && (c <= '\176')))

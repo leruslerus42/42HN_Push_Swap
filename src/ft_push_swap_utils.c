@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
+/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:38:58 by coder             #+#    #+#             */
-/*   Updated: 2021/12/10 19:10:14 by coder            ###   ########.fr       */
+/*   Updated: 2022/01/21 05:56:00 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ t_stack	*new_stack(void)
 	if (!stack)
 		return (0);
 	stack->size = 0;
+	stack->ops = 0;
 	return (stack);
 }
 
-t_node	*new_node(t_stack *stack, int value, char c)
+t_node	*new_node(t_stack *stack, int value, int new_value, char c)
 {
 	t_node		*node;
 	static int	i = 0;
@@ -34,6 +35,8 @@ t_node	*new_node(t_stack *stack, int value, char c)
 		return (0);
 	node->value = value;
 	node->next = NULL;
+	node->flag = FALSE;
+	node->new_value = new_value;
 	stack->size ++;
 	if (c == 'a')
 	{	
@@ -44,10 +47,7 @@ t_node	*new_node(t_stack *stack, int value, char c)
 	{
 		j++;
 		node->index = j;
-	}	
-
-	//node->previous = ;
-	//care, if u do new node, could be conflict with index, since they are always incrementating.
+	}
 	return (node);
 }
 
@@ -56,42 +56,32 @@ t_node	*last_node(t_stack *stack)
 	t_node	*first_node;
 
 	if (!(stack)->node)
-		return NULL;
+		return (NULL);
 	first_node = (stack)->node;
 	while (first_node->next)
 		first_node = first_node->next;
 	return (first_node);
 }
 
-
 void	stack_add_front(t_stack **stack, t_node *new_start_node, char c)
 {
 	t_node	*old_first_node;
 
 	if (!stack)
-		return ;	
-
-	old_first_node = new_node(*stack, (*stack)->node->value, c);
-	//possible stack size +grossa di piu 1 perche un new in piu (by function call hai anche un uno)
-	//freee me, since mem position of old first node lost reference
+		return ;
+	old_first_node = new_node(*stack, (*stack)->node->value, 0, c);
 	old_first_node->next = (*stack)->node->next;
 	(*stack)->node = new_start_node;
 	new_start_node->next = old_first_node;
-	index_reording(*stack);	
+	index_reording(*stack);
 }
 
 void	stack_add_back(t_stack **stack, t_node *new_end_node)
 {
-	t_node	*old_last_node;
-	
-	if (!new_end_node)
-		return ;
-	if (!(*stack)->node)
+	if ((*stack)->node == NULL)
 	{
 		(*stack)-> node = new_end_node;
 		return ;
 	}
-	old_last_node = last_node(*stack);
-	old_last_node->next = new_end_node;
-	//new_end_node->index = (*stack)->size; index handled in node
+	last_node(*stack)->next = new_end_node;
 }
