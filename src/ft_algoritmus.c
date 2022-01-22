@@ -6,7 +6,7 @@
 /*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:38:58 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/20 11:32:19 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:21:04 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	algorithmus_x_5(t_stack *a, t_stack *b)
 	int	index_max;
 	int	max;
 
+	if (a == NULL || a->node == NULL)
+		return ;
 	find_minimum_first_time(a, &min, &index_min);
 	while ((a)->node->value != min)
 		algorithmus_x_5_helper(a, index_min);

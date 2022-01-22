@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parsing.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 13:02:46 by coder             #+#    #+#             */
-/*   Updated: 2022/01/21 05:46:29 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:30:29 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,24 @@ static int	ft_legit_number(const char *input)
 	return (sign * num);
 }
 
+void	prove_parsing(t_stack **a, char **array, int j)
+{
+	long long		num;
+	t_node			*node;
+
+	node = NULL;
+	num = ft_legit_number(array[j]);
+	if ((*a)->size != 0)
+		ft_error_double_digit(*a, num);
+	node = new_node(*a, num, 0, 'a');
+	stack_add_back(a, node);
+}
+
 void	parsing(t_stack **a, char **argv, int argc)
 {
 	int				i;
 	int				j;
 	char			**array;
-	long long		num;	
 
 	i = 1;
 	array = NULL;
@@ -51,16 +63,17 @@ void	parsing(t_stack **a, char **argv, int argc)
 	while (i < argc)
 	{
 		array = ft_split(argv[i], ' ');
+		if (!array)
+			ft_exit(0);
 		j = 0;
 		while (array[j])
 		{
-			num = ft_legit_number(array[j]);
-			ft_error_double_digit(*a, num);
-			stack_add_back(a, new_node(*a, num, 0, 'a'));
+			prove_parsing(a, array, j);
 			j++;
 		}
 		i++;
 		while (j--)
 			free(array[j]);
+		free(array);
 	}
 }

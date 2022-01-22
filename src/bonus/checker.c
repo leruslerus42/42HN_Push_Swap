@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:29:10 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/21 04:38:58 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:18:34 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ static void	error_management(t_stack *a, t_stack *b, char **tab, int i)
 		reverse(b, 'b', TRUE);
 	else if (tab[i][0] == 'r' && tab[i][1] == 'r' && tab[i][2] == 'r')
 		reverse_x_2(a, b, TRUE);
-	{
+	else
+	{	
 		ft_free(a);
+		if (b->size)
+			ft_free(b);
 		ft_exit(3);
 	}
 }
@@ -77,7 +80,7 @@ void	checker(t_stack *a, t_stack *b)
 	if (ft_stack_sorted(a) == TRUE)
 	{
 		ft_free(a);
-		ft_exit(42);
+		ft_exit(0);
 	}
 	tab = ft_split(buf, '\n');
 	operations_execution(a, b, tab);

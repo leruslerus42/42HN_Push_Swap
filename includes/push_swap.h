@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 00:15:57 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/21 05:45:40 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:30:47 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_stack
 
 /*************PARSING***************/
 void	parsing(t_stack **a, char **argv, int argc);
+void	prove_parsing(t_stack **a, char **array, int j);
 
 /*************OPERATIONS***************/
 void	swap(t_stack *stack, char c, int checker);
@@ -83,12 +84,8 @@ void	ft_error_double_digit(t_stack *stack, int num);
 void	ft_free(t_stack *stack);
 void	ft_exit(int case_num);
 
-
 /********************BONUS_CHECKER***************/
 void	checker(t_stack *a, t_stack *b);
-char	*get_next_line(int fd);
-void	parsing_checker(t_stack **a, char *buf, int argc);
-char	**ft_split_with_size_on_last_value(char const *s, char c);
 
 /****************LIBFT HELP FUNCTIONS***********/
 char	**ft_split(char const *s, char c);

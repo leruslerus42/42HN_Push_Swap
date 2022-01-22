@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 11:29:10 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/21 04:41:27 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:50:18 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	a = new_stack();
-	b = new_stack();
 	parsing(&a, argv, argc);
 	if (ft_stack_sorted(a) == TRUE && !BONUS)
-		exit(0);
+		ft_exit(0);
+	b = new_stack();
 	stack_first_reindexing(a);
 	if (BONUS == 1)
 		checker(a, b);
@@ -46,6 +46,7 @@ int	main(int argc, char **argv)
 	else
 		universal_algorithmus(a, b);
 	ft_free(a);
+	ft_free(b);
 	ft_exit(0);
 	return (0);
 }

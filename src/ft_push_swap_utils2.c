@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap_utils2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:49:05 by coder             #+#    #+#             */
-/*   Updated: 2022/01/19 11:47:39 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 22:46:38 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,17 @@ void	index_reording(t_stack *stack)
 	t_node	*first_node;
 	int		i;
 
-	if (stack->node == NULL)
+	if (stack == NULL || stack->node == NULL)
 		return ;
 	i = 1;
 	first_node = (stack)->node;
-	while (first_node->next)
+	while ((stack)->node)
 	{
-		first_node->index = i;
-		first_node = first_node->next;
+		(stack)->node->index = i;
+		(stack)->node = (stack)->node->next;
 		i++;
 	}
-	first_node->index = i;
+	(stack)->node = first_node;
 }
 
 int	ft_stack_sorted(t_stack *a)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 12:38:58 by coder             #+#    #+#             */
-/*   Updated: 2022/01/21 05:56:00 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/21 21:11:53 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,15 @@ void	stack_add_front(t_stack **stack, t_node *new_start_node, char c)
 
 void	stack_add_back(t_stack **stack, t_node *new_end_node)
 {
-	if ((*stack)->node == NULL)
+	t_node	*old_last_node;
+
+	if (!new_end_node)
+		return ;
+	if ((*stack)->size == 1)
 	{
 		(*stack)-> node = new_end_node;
 		return ;
 	}
-	last_node(*stack)->next = new_end_node;
+	old_last_node = last_node(*stack);
+	old_last_node->next = new_end_node;
 }

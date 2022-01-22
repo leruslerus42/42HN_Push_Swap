@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_algoritmus_helper.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rrajaobe <rrajaobe@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: rrajaobe < rrajaobe@student.42heilbronn    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:44:38 by rrajaobe          #+#    #+#             */
-/*   Updated: 2022/01/19 11:12:20 by rrajaobe         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:03:07 by rrajaobe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
