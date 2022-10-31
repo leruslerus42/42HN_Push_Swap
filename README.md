@@ -38,6 +38,11 @@ that is the strenght of the Radix Algoritm.
 After running the makefile, a list of valid integers can be passed as argument(s) to the executable as argument, negative numbers also (no duplicates). 
 The application will the show the number of operations that are needed to sort these numbers.
 
+## CHECKER
+
+The 'checker' (of the Bonus Part) programm can read the Operations from Stdin and perform them on a stack of numbers.
+Checker will return 'OK' when the given operations will sort the numbers in ascending order. Otherwise it returns 'KO'.
+In case of an error (f.ex. Operations doesn't exist) it returns 'Error'.
 
 ## NORMINETTE
 
