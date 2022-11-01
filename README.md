@@ -57,5 +57,4 @@ As all other C projects at the 42 school, the code has to written in accordance 
 - git@github.com:louisabricot/push_swap_tester.git
 
 ## RESULT 
-<img width="1174" alt="Screenshot 2022-10-31 at 05 02 35" src="https://user-images.githubusercontent.com/85942176/198930872-78ab72c7-59fa-4c6f-813d-18104800fb7e.png">
-
+<img width="846" alt="Screenshot 2022-11-01 at 07 14 03" src="https://user-images.githubusercontent.com/85942176/199170642-fde25f9b-fcef-4ebb-afed-6c0c7bdeb931.png">
